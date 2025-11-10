@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface ArticleCardProps {
   title: string;
@@ -9,11 +10,21 @@ interface ArticleCardProps {
   category: string;
   readTime: string;
   icon: React.ReactNode;
+  slug: string;
 }
 
-export const ArticleCard = ({ title, description, category, readTime, icon }: ArticleCardProps) => {
+export const ArticleCard = ({ title, description, category, readTime, icon, slug }: ArticleCardProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/artigo/${slug}`);
+  };
+
   return (
-    <Card className="shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer">
+    <Card 
+      className="shadow-card hover:shadow-hover transition-all duration-300 group cursor-pointer"
+      onClick={handleClick}
+    >
       <CardHeader>
         <div className="flex items-start justify-between gap-3">
           <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">

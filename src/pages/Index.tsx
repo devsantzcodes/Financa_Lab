@@ -127,6 +127,7 @@ const Index = () => {
               category="Investimentos"
               readTime="8 min"
               icon={<TrendingUp className="w-6 h-6" />}
+              slug="como-comecar-investir"
             />
             <ArticleCard
               title="O Guia Completo do Orçamento Familiar"
@@ -134,6 +135,7 @@ const Index = () => {
               category="Planejamento"
               readTime="10 min"
               icon={<Wallet className="w-6 h-6" />}
+              slug="guia-orcamento-familiar"
             />
             <ArticleCard
               title="Proteção Financeira: Seguros Essenciais"
@@ -141,6 +143,7 @@ const Index = () => {
               category="Segurança"
               readTime="7 min"
               icon={<Shield className="w-6 h-6" />}
+              slug="protecao-financeira-seguros"
             />
             <ArticleCard
               title="Estratégias para Sair das Dívidas"
@@ -148,6 +151,7 @@ const Index = () => {
               category="Dívidas"
               readTime="12 min"
               icon={<Target className="w-6 h-6" />}
+              slug="estrategias-sair-dividas"
             />
             <ArticleCard
               title="Educação Financeira para Iniciantes"
@@ -155,6 +159,7 @@ const Index = () => {
               category="Básico"
               readTime="6 min"
               icon={<BookOpen className="w-6 h-6" />}
+              slug="educacao-financeira-iniciantes"
             />
             <ArticleCard
               title="Dicas de Economia no Dia a Dia"
@@ -162,6 +167,7 @@ const Index = () => {
               category="Economia"
               readTime="5 min"
               icon={<Lightbulb className="w-6 h-6" />}
+              slug="dicas-economia-dia-dia"
             />
           </div>
         </section>
