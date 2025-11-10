@@ -14,7 +14,269 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      articles: {
+        Row: {
+          category: string
+          content: string | null
+          created_at: string
+          description: string
+          icon_name: string | null
+          id: string
+          published: boolean | null
+          read_time: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          content?: string | null
+          created_at?: string
+          description: string
+          icon_name?: string | null
+          id?: string
+          published?: boolean | null
+          read_time: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          content?: string | null
+          created_at?: string
+          description?: string
+          icon_name?: string | null
+          id?: string
+          published?: boolean | null
+          read_time?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      budget_simulations: {
+        Row: {
+          created_at: string
+          entertainment: number | null
+          food: number | null
+          housing: number | null
+          id: string
+          income: number
+          name: string
+          others: number | null
+          transport: number | null
+          updated_at: string
+          user_id: string
+          utilities: number | null
+        }
+        Insert: {
+          created_at?: string
+          entertainment?: number | null
+          food?: number | null
+          housing?: number | null
+          id?: string
+          income: number
+          name: string
+          others?: number | null
+          transport?: number | null
+          updated_at?: string
+          user_id: string
+          utilities?: number | null
+        }
+        Update: {
+          created_at?: string
+          entertainment?: number | null
+          food?: number | null
+          housing?: number | null
+          id?: string
+          income?: number
+          name?: string
+          others?: number | null
+          transport?: number | null
+          updated_at?: string
+          user_id?: string
+          utilities?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "budget_simulations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      debt_calculations: {
+        Row: {
+          created_at: string
+          debts: Json
+          extra_payment: number | null
+          id: string
+          method: string
+          name: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          debts: Json
+          extra_payment?: number | null
+          id?: string
+          method: string
+          name: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          debts?: Json
+          extra_payment?: number | null
+          id?: string
+          method?: string
+          name?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "debt_calculations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      investment_simulations: {
+        Row: {
+          created_at: string
+          final_value: number
+          id: string
+          initial_amount: number
+          investment_type: string
+          monthly_contribution: number
+          name: string
+          time_months: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          final_value: number
+          id?: string
+          initial_amount: number
+          investment_type: string
+          monthly_contribution: number
+          name: string
+          time_months: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          final_value?: number
+          id?: string
+          initial_amount?: number
+          investment_type?: string
+          monthly_contribution?: number
+          name?: string
+          time_months?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "investment_simulations_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      quiz_questions: {
+        Row: {
+          active: boolean | null
+          correct_answer: number
+          created_at: string
+          explanation: string
+          id: string
+          options: Json
+          question: string
+        }
+        Insert: {
+          active?: boolean | null
+          correct_answer: number
+          created_at?: string
+          explanation: string
+          id?: string
+          options: Json
+          question: string
+        }
+        Update: {
+          active?: boolean | null
+          correct_answer?: number
+          created_at?: string
+          explanation?: string
+          id?: string
+          options?: Json
+          question?: string
+        }
+        Relationships: []
+      }
+      quiz_results: {
+        Row: {
+          completed_at: string
+          id: string
+          score: number
+          total_questions: number
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          score: number
+          total_questions: number
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          score?: number
+          total_questions?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "quiz_results_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
